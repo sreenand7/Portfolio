@@ -1,0 +1,58 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: rgb(34, 126, 247);
+    color: rgb(255, 251, 251);
+    margin-left: 12px;
+}
+
+.navbar {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 8px;
+    border: 1px solid white;
+    border-radius: 16px;
+    width: 70%;
+    height: 30px;
+    margin: 16px auto;
+    transition: background-color 0.4s;
+}
+
+.navbar:hover {
+    background-color: rgba(255, 255, 255, 0.15);
+}
+
+.logo {
+    margin-left: 16px;
+    font-size: large;
+    font-weight: 200;
+    cursor: pointer;
+}
+
+.menu {
+    display: flex;
+    gap: 20px;
+    list-style: none;
+}
+
+.menu li {
+    font-size: larger;
+    cursor: pointer;
+    padding: 6px 6px;
+    border-radius: 20px;
+    transition: 0.3s ease; 
+}
+
+.menu li:hover {
+    background-color: rgba(255, 255, 255, 0.15);
+    color: white;
+}
+
+.navbar:has(.menu li:hover){
+    background-color: transparent;
+}
