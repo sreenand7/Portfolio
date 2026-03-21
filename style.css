@@ -1,58 +1,160 @@
+:root {
+  --bg: #07071a;
+  --accent: #7c3aed;
+  --accent-light: #a78bfa;
+  --accent-glow: rgba(124, 58, 237, 0.2);
+  --text: #f0efff;
+  --text-dim: #8b8ba8;
+  --border: rgba(255, 255, 255, 0.08);
+  --nav-height: 68px;
+  --transition: 0.25s ease;
+}
+
 * {
-    margin: 0;
-    padding: 0;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 body {
-    background-color: rgb(34, 126, 247);
-    color: rgb(255, 251, 251);
-    margin-left: 12px;
+  font-family: 'Inter', sans-serif;
+  background-color: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
 }
 
-.navbar {
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 8px;
-    border: 1px solid white;
-    border-radius: 16px;
-    width: 70%;
-    height: 30px;
-    margin: 16px auto;
-    transition: background-color 0.4s;
+/* Background grid */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(124, 58, 237, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(124, 58, 237, 0.03) 1px, transparent 1px);
+  background-size: 60px 60px;
+  pointer-events: none;
+  z-index: 0;
 }
 
-.navbar:hover {
-    background-color: rgba(255, 255, 255, 0.15);
+/* Glow blobs */
+.blob {
+  position: fixed;
+  border-radius: 50%;
+  filter: blur(120px);
+  opacity: 0.15;
+  pointer-events: none;
+  z-index: 0;
+}
+.blob-1 { width: 500px; height: 500px; background: var(--accent); top: -150px; left: -100px; }
+.blob-2 { width: 350px; height: 350px; background: #4f46e5; bottom: 0; right: -80px; }
+
+/* ── Navbar ── */
+nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  height: var(--nav-height);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 20px;
+  z-index: 100;
+}
+
+.nav-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 860px;
+  height: 52px;
+  padding: 0 20px;
+  background: rgba(10, 10, 30, 0.7);
+  backdrop-filter: blur(14px);
+  border: 1px solid var(--border);
+  border-radius: 30px;
+  transition: border-color var(--transition);
+}
+
+.nav-container:hover {
+  border-color: rgba(124, 58, 237, 0.2);
 }
 
 .logo {
-    margin-left: 16px;
-    font-size: large;
-    font-weight: 200;
-    cursor: pointer;
+  font-weight: 700;
+  font-size: 16px;
+  color: var(--text);
+  text-decoration: none;
 }
 
-.menu {
-    display: flex;
-    gap: 20px;
-    list-style: none;
+.nav-links {
+  display: flex;
+  list-style: none;
+  gap: 4px;
 }
 
-.menu li {
-    font-size: larger;
-    cursor: pointer;
-    padding: 6px 6px;
-    border-radius: 20px;
-    transition: 0.3s ease; 
+.nav-links a {
+  text-decoration: none;
+  color: var(--text-dim);
+  font-size: 12px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  padding: 6px 12px;
+  border-radius: 8px;
+  transition: color var(--transition), background var(--transition);
 }
 
-.menu li:hover {
-    background-color: rgba(255, 255, 255, 0.15);
-    color: white;
+.nav-links a:hover {
+  color: var(--text);
+  background: rgba(255, 255, 255, 0.06);
 }
 
-.navbar:has(.menu li:hover){
-    background-color: transparent;
+.nav-links a.active {
+  color: var(--text);
+  position: relative;
+}
+
+.nav-links a.active::after {
+  content: '';
+  position: absolute;
+  bottom: 2px; left: 50%;
+  transform: translateX(-50%);
+  width: 14px; height: 2px;
+  background: var(--accent-light);
+  border-radius: 2px;
+}
+
+.mail-btn {
+  color: var(--text-dim);
+  text-decoration: none;
+  font-size: 16px;
+  width: 36px; height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  transition: color var(--transition), border-color var(--transition), background var(--transition);
+}
+
+.mail-btn:hover {
+  color: var(--text);
+  border-color: var(--accent-light);
+  background: var(--accent-glow);
+}
+
+/* ── Main ── */
+main {
+  position: relative;
+  z-index: 1;
+  padding-top: var(--nav-height);
+  min-height: 100vh;
+}
+
+/* ── Mobile ── */
+@media (max-width: 600px) {
+  .nav-links { display: none; }
+  .logo { font-size: 15px; }
 }
