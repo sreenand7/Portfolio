@@ -86,7 +86,7 @@ nav {
   max-width: 860px;
   height: 52px;
   padding: 0 20px;
-  background: rgba(10, 10, 30, 0.7);
+  background: rgba(10, 10, 30, 0.4);
   backdrop-filter: blur(14px);
   border: 1px solid var(--border);
   border-radius: 30px;
@@ -402,7 +402,7 @@ main {
 #about {
   max-width: 1000px;
   margin: 0 auto;
-  padding: 100px 40px;
+  padding: 60px 40px;
 }
 
 .about-top {
@@ -410,7 +410,7 @@ main {
   justify-content: space-between;
   align-items: flex-start;
   gap: 40px;
-  margin-bottom: 80px;
+  margin-bottom: 48px;
 }
 
 .about-left {
@@ -526,7 +526,7 @@ main {
 #skills {
   max-width: 1000px;
   margin: 0 auto;
-  padding: 100px 40px;
+  padding: 60px 40px;
 }
 
 .skills-title {
@@ -753,7 +753,7 @@ main {
 #projects {
   max-width: 1000px;
   margin: 0 auto;
-  padding: 100px 40px;
+  padding: 60px 40px;
 }
 
 .projects-title {
@@ -869,7 +869,7 @@ main {
 #contact {
   max-width: 1000px;
   margin: 0 auto;
-  padding: 100px 40px;
+  padding: 60px 40px;
 }
 
 .contact-wrapper {
@@ -925,8 +925,8 @@ main {
   border-color: var(--accent-light);
 }
 
-.social-icon {
-  font-size: 14px;
+.social-link i {
+  font-size: 15px;
   color: var(--accent-light);
 }
 
@@ -1027,6 +1027,10 @@ textarea {
   text-decoration: none;
   color: var(--text-dim);
   transition: color var(--transition);
+}
+
+.footer-links a i {
+  margin-right: 6px;
 }
 
 .footer-links a:hover {
