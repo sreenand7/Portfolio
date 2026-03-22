@@ -521,6 +521,233 @@ main {
 
 
 /* ─────────────────────────────────────────
+   Skills Section
+───────────────────────────────────────── */
+#skills {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 100px 40px;
+}
+
+.skills-title {
+  font-size: clamp(32px, 5vw, 52px);
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -1px;
+  margin-bottom: 20px;
+}
+
+.skills-desc {
+  font-size: 15px;
+  line-height: 1.7;
+  color: var(--text-dim);
+  margin-bottom: 48px;
+  max-width: 500px;
+}
+
+.skills-grid-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.skills-grid-top {
+  display: grid;
+  grid-template-columns: 3fr 2fr;
+  gap: 20px;
+}
+
+.skills-grid-bottom {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 20px;
+}
+
+.skills-card {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  padding: 28px;
+}
+
+.skills-card-accent {
+  background: linear-gradient(135deg, #1e0a40, #0e0728);
+  border-color: rgba(124, 58, 237, 0.4);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.card-top-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.card-icon {
+  font-size: 18px;
+  color: var(--accent-light);
+  display: block;
+  margin-bottom: 8px;
+}
+
+.card-top-row .card-icon {
+  margin-bottom: 0;
+}
+
+.card-tag {
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--text-dim);
+  background: rgba(255, 255, 255, 0.06);
+  padding: 4px 10px;
+  border-radius: 20px;
+  border: 1px solid var(--border);
+}
+
+.skills-card h3 {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 24px;
+}
+
+.skills-tag-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
+
+.skill-item {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 14px 12px;
+}
+
+.skill-name {
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--text);
+  margin-bottom: 4px;
+}
+
+.skill-sub {
+  font-size: 10px;
+  color: var(--accent-light);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.skills-checklist {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.check-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 14px;
+  color: var(--text);
+  padding: 14px 16px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+}
+
+.check-icon {
+  color: var(--accent-light);
+  font-size: 16px;
+}
+
+.tools-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+}
+
+.tool-box {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 18px 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.tool-name {
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--text);
+}
+
+.tool-type {
+  font-size: 10px;
+  color: var(--text-dim);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.skills-card-accent h3 {
+  font-size: 22px;
+  font-weight: 700;
+  line-height: 1.3;
+  margin-bottom: 14px;
+  color: var(--text);
+}
+
+.skills-card-accent p {
+  font-size: 14px;
+  line-height: 1.7;
+  color: var(--text-dim);
+  margin-bottom: 28px;
+}
+
+.btn-outline {
+  display: inline-block;
+  text-decoration: none;
+  color: var(--text);
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  padding: 14px 28px;
+  border-radius: 40px;
+  font-size: 14px;
+  font-weight: 500;
+  width: 100%;
+  text-align: center;
+  transition: background var(--transition);
+}
+
+.btn-outline:hover {
+  background: rgba(255, 255, 255, 0.12);
+}
+
+/* Skills mobile */
+@media (max-width: 768px) {
+  #skills {
+    padding: 80px 24px;
+  }
+
+  .skills-grid-top,
+  .skills-grid-bottom {
+    grid-template-columns: 1fr;
+  }
+
+  .skills-card-wide,
+  .skills-card-right,
+  .skills-card-small,
+  .skills-card-accent {
+    max-width: none;
+  }
+}
+
+
+/* ─────────────────────────────────────────
    Section show / hide  — MUST be last so
    !important beats .hero { display:flex }
 ───────────────────────────────────────── */
