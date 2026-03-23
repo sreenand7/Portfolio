@@ -25,6 +25,11 @@
         <li><a href="#projects">Projects</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
+      <button class="nav-toggle" aria-label="Toggle menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
       <a href="mailto:sreenandk754@email.com" class="mail-btn"><i class="fa-regular fa-envelope"></i></a>
     </div>
   </nav>
@@ -331,6 +336,15 @@
   <script>
     var sections = document.querySelectorAll('main section');
     var navLinks = document.querySelectorAll('.nav-links a');
+    var navToggle = document.querySelector('.nav-toggle');
+    var navLinksContainer = document.querySelector('.nav-links');
+
+    if (navToggle) {
+      navToggle.addEventListener('click', function() {
+        navToggle.classList.toggle('open');
+        navLinksContainer.classList.toggle('open');
+      });
+    }
 
     function showSection(id) {
       sections.forEach(function (s) { s.classList.remove('active-section'); });
@@ -353,6 +367,10 @@
         e.preventDefault();
         var id = link.getAttribute('href').replace('#', '');
         showSection(id);
+        if (navToggle) {
+          navToggle.classList.remove('open');
+          navLinksContainer.classList.remove('open');
+        }
       });
     });
 
