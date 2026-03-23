@@ -40,9 +40,10 @@
     <section id="home" class="hero">
 
       <div class="hero-left">
+        <span class="hero-greeting">Hi, I'm</span>
         <h1 class="hero-title">
           Sreenandh<br>
-          <span class="accent">Software<br>Developer</span>
+          <span class="accent"><span class="typed-text"></span></span>
         </h1>
         <p class="hero-desc">
           Crafting high-fidelity digital experiences where editorial
@@ -53,13 +54,39 @@
           <a href="#about" class="btn-primary">More About Me →</a>
           <a href="#projects" class="btn-secondary">View Projects</a>
         </div>
+        <div class="hero-stats">
+          <div class="stat-item">
+            <span class="stat-number">3+</span>
+            <span class="stat-label">Projects</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-number">2+</span>
+            <span class="stat-label">Languages</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-number">CSE</span>
+            <span class="stat-label">Student</span>
+          </div>
+        </div>
       </div>
 
       <div class="hero-right">
         <div class="hero-card">
-          <div class="card-placeholder">
-            <div class="placeholder-plant"></div>
-            <div class="placeholder-desk"></div>
+          <div class="code-card">
+            <div class="code-header">
+              <span class="dot dot-red"></span>
+              <span class="dot dot-yellow"></span>
+              <span class="dot dot-green"></span>
+              <span class="code-title">index.js</span>
+            </div>
+            <div class="code-body">
+              <p class="code-line"><span class="code-keyword">const</span> <span class="code-var">developer</span> = {</p>
+              <p class="code-line">&nbsp;&nbsp;<span class="code-key">name</span>: <span class="code-string">"Sreenandh"</span>,</p>
+              <p class="code-line">&nbsp;&nbsp;<span class="code-key">role</span>: <span class="code-string">"Software Developer"</span>,</p>
+              <p class="code-line">&nbsp;&nbsp;<span class="code-key">learning</span>: <span class="code-string">"always"</span>,</p>
+              <p class="code-line">&nbsp;&nbsp;<span class="code-key">available</span>: <span class="code-bool">true</span></p>
+              <p class="code-line">}</p>
+            </div>
           </div>
           <div class="latest-project">
             <span class="latest-label">Latest Project</span>
@@ -338,6 +365,39 @@
     var navLinks = document.querySelectorAll('.nav-links a');
     var navToggle = document.querySelector('.nav-toggle');
     var navLinksContainer = document.querySelector('.nav-links');
+
+    const textArray = ["Software Developer", "Problem Solver", "CS Student"];
+    let textIndex = 0;
+    let charIndex = 0;
+    const typedTextSpan = document.querySelector('.typed-text');
+    
+    function type() {
+      if (!typedTextSpan) return;
+      if (charIndex < textArray[textIndex].length) {
+        typedTextSpan.textContent += textArray[textIndex].charAt(charIndex);
+        charIndex++;
+        setTimeout(type, 100);
+      } else {
+        setTimeout(erase, 2000);
+      }
+    }
+    
+    function erase() {
+      if (!typedTextSpan) return;
+      if (charIndex > 0) {
+        typedTextSpan.textContent = textArray[textIndex].substring(0, charIndex - 1);
+        charIndex--;
+        setTimeout(erase, 50);
+      } else {
+        textIndex++;
+        if (textIndex >= textArray.length) textIndex = 0;
+        setTimeout(type, 500);
+      }
+    }
+
+    if (typedTextSpan) {
+      setTimeout(type, 1000);
+    }
 
     if (navToggle) {
       navToggle.addEventListener('click', function() {
