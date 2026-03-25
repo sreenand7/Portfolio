@@ -1126,6 +1126,7 @@ textarea {
 
 .hero-stats {
   display: flex;
+  justify-content: center;
   gap: 24px;
   margin-top: 28px;
   padding-top: 28px;
